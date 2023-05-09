@@ -35,7 +35,8 @@ def table_get_result_details(fp, fn):
 
 
 def table_get_result_summary(wb_result, pdl):
-
+    import os
+    
     # init
     payloads_summary_dict = {}
     payloads_summary_list_fp = []
@@ -44,7 +45,9 @@ def table_get_result_summary(wb_result, pdl):
     table_headers_fp = [7 * ' ' + 'PAYLOAD TYPE', 10 * ' ' + 'PASSED', 10 * ' ' + 'FALSED', 10 * ' ' + 'FAILED']
 
     # get payloads type list
-    payloads_list = list(set([pdl.join(k.split(':', 1)[0].split(pdl)[:-1]) for k in wb_result.keys()]))
+    # payloads_list = list(set([pdl.join(k.split(':', 1)[0].split(pdl)[:-1]) for k in wb_result.keys()]))
+    # get payloads type list, get the path according to the system
+    payloads_list = list(set([os.path.dirname(k) for k in wb_result.keys()]))
     
     # create result dictionary by payloads type
     for payloads in payloads_list:
