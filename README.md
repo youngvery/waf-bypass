@@ -1,8 +1,11 @@
 # 使用记录 by veryyoung
 1、需要python3
+
 2、下载代码到路径A，cd进入A
+
 3、第一次使用要执行如下命令
 python3 -m pip install -r requirements.txt
+
 4、执行如下命令发起攻击请求带端口
 python3 main.py --host=example.com --proxy example.com:80
 
